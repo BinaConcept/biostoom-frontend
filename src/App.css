@@ -69,8 +69,6 @@
 }
 .glass_card{
   /* From https://css.glass */
-width: auto;
-height: auto;
 font-size: 20px;
 background: rgba(255, 255, 255, 0.1);
 border-radius: 16px;
@@ -84,6 +82,18 @@ position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 2ex;
+}
+@media screen and (max-width: 768px) { /* Specific to this particular image */
+  .glass_card {
+    width: 80%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 576px) { /* Specific to this particular image */
+  .glass_card {
+    width: 90%;
+    height: auto;
+  }
 }
 .glass_card{
   /* From https://css.glass */
