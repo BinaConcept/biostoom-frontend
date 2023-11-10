@@ -70,7 +70,7 @@
 .glass_card{
   /* From https://css.glass */
 width: auto;
-height: 200px;
+height: auto;
 font-size: 20px;
 background: rgba(255, 255, 255, 0.1);
 border-radius: 16px;
