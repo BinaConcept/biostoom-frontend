@@ -13,7 +13,7 @@ const StartPage = () => {
 				<div>
 					<h6>WELKOM VERGUNNING PLATFORM</h6>
 					<p>Om werkvergunning aan te maken klik op start knop</p>
-					<a href="#" class="btn btn-primary">
+					<a href="#" className="btn btn-primary">
 						START
 					</a>
 				</div>
