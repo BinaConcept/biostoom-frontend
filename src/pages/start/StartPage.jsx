@@ -1,6 +1,5 @@
 import React from 'react';
 import bionerga_image from '../../assets/images/Bionerga_image.jpg';
-import { BrowserRouter as Link } from 'react-router-dom';
 const StartPage = () => {
 	return (
 		<div>
@@ -11,11 +10,13 @@ const StartPage = () => {
 			<div className="glass_card text-center">
 				<h1>BIONERGA</h1>
 				<div>
-					<h6>WELKOM VERGUNNING PLATFORM</h6>
-					<p>Om werkvergunning aan te maken klik op start knop</p>
-					<a href="#" className="btn btn-primary">
+					<p>WELKOM VERGUNNING PLATFORM</p>
+					<p className='mb-5'>Om werkvergunning aan te maken <b>klik op start knop</b></p>
+					{/* <link rel="stylesheet" className="btn btn-primary" href="" >
 						START
-					</a>
+					</link> */}
+						<button type="button" class="btn btn-primary start_button">START</button>
+				
 				</div>
 			</div>
 		</div>
