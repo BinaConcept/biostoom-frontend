@@ -1,7 +1,8 @@
 import React from 'react'
 
-export const Introduction = () => {
+export const IntroExtern = () => {
   return (
-    <div>Introduction</div>
+    <div>IntroExtern</div>
   )
 }
+
