@@ -11,12 +11,12 @@ const StartPage = () => {
 				<h1>BIONERGA</h1>
 				<div>
 					<p>WELKOM VERGUNNING PLATFORM</p>
-					<p className='mb-5'>Om werkvergunning aan te maken <b>klik op start knop</b></p>
-					{/* <link rel="stylesheet" className="btn btn-primary" href="" >
+					<p className="mb-5">
+						Om werkvergunning aan te maken <b>klik op start knop</b>
+					</p>
+					<button type="button" class="btn btn-primary start_button">
 						START
-					</link> */}
-						<button type="button" class="btn btn-primary start_button">START</button>
-				
+					</button>
 				</div>
 			</div>
 		</div>

@@ -82,6 +82,7 @@ top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 padding: 4ex 8ex 2ex 8ex;
+
 }
 @media screen and (max-width: 768px) { /* Specific to this particular image */
   .glass_card {
@@ -96,10 +97,7 @@ padding: 4ex 8ex 2ex 8ex;
     height: auto;
   }
 }
-.glass_card{
-  /* From https://css.glass */
 
-}
 .start_button{
   width: 100%;
   font-size:larger
