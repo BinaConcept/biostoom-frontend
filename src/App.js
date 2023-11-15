@@ -1,7 +1,7 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { Introduction } from './pages/extern/introExtern/IntroExtern';
+import { LocationList } from './pages/location/LocationList';
 // import StartPage from './pages/start/StartPage';
 // import { SelectionPage } from './pages/start/SelectionPage';
 
@@ -11,7 +11,7 @@ function App() {
     <div>
       {/* <StartPage/> */}
       {/* <SelectionPage/> */}
-      <Introduction/>
+      <LocationList/>
     </div>
   );
 }
