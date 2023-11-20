@@ -14,7 +14,7 @@ const StartPage = () => {
 					<p className="mb-5">
 						Om werkvergunning aan te maken <b>klik op start knop</b>
 					</p>
-					<button type="button" class="btn btn-primary start_button">
+					<button type="button" className="btn btn-primary start_button">
 						START
 					</button>
 				</div>
