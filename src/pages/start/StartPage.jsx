@@ -7,7 +7,7 @@ const StartPage = () => {
 				<img src={bionerga_image} alt=""></img>
 				<div className="front_tin"></div>
 			</div>
-			<div className="glass_card text-center">
+			<div className="glass_card text-center view-center">
 				<h1>BIONERGA</h1>
 				<div>
 					<p>WELKOM VERGUNNING PLATFORM</p>
