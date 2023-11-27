@@ -34,8 +34,8 @@ export const Trash = ({ linkID }) => {
 	return (
 		<Link className="menu-link">
 			<Popconfirm
-				title="Delete the location"
-				description="Are you sure to delete this location?"
+				title={`Delete the location ${linkID[0]}`}
+				description={`Are you sure to delete this ${linkID[0]}?`}
 				onConfirm={confirm}
 				onCancel={cancel}
 				okText="Yes"

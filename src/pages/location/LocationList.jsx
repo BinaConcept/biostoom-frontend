@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Pencil } from '../../atoms/Pencil';
-import { Eye } from '../../atoms/Eye';
 import { CrudMenu } from '../../modules/crudMenu/CrudMenu';
 import { Link } from 'react-router-dom';
 import LocationService from '../../service/LocationService';
-import axios from 'axios';
 
 export const LocationList = () => {
 	const [location, setLocation] = useState(null);
