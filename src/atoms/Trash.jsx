@@ -41,7 +41,7 @@ export const Trash = ({ linkID }) => {
 				okText="Yes"
 				cancelText="No"
 			>
-				<div className="menu-crud-box  menu-crud-delete">
+				<div className="box menu-crud-box  menu-crud-delete">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="16"

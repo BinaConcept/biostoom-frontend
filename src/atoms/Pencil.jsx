@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Pencil = ({linkID}) => {
 	return (
 		<Link className='menu-link' to={`${linkID}`}>
-		<div className='menu-crud-box  menu-crud-item'>
+		<div className='box menu-crud-box  menu-crud-item'>
 			<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="18"

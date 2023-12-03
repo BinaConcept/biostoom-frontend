@@ -48,9 +48,9 @@ export const BadgeList = () => {
 			{badge.map((item) => (
 				<div key={item.id} className="tabel_box m-3">
 					<div className="row text-start">
-						<div className="col-5">{item.number}</div>
-						<div className="col-5">{item.zone}</div>
-						<div className="col-2">
+						<div className="col-xl-5">{item.number}</div>
+						<div className="col-xl-5">{item.zone}</div>
+						<div className="col-xl-2">
 							<CrudMenu
 								eye={`/badge-detail/${item.id}`}
 								pencil={`/badge/${item.id}`}

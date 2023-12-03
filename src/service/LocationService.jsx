@@ -6,7 +6,6 @@ class LocationService {
 		try {
 			NotificationManager.info('Succes opgehaald.', 'Locatie lijst');
 			const response = await axios.get(`http://127.0.0.1:8000/api/location/`);
-			console.log('Response Status:', response.status);
 			return response.data;
 		} catch (error) {
 			console.error('Error het location:', error);
@@ -41,7 +40,6 @@ class LocationService {
 				`${response.data.name}`
 			);
 		}
-		console.log('Response Status:', response.status);
 		return response.data;
 	}
 	async updateLocationByID(id, data) {
@@ -50,14 +48,12 @@ class LocationService {
 				`http://127.0.0.1:8000/api/location/${id}`,
 				data
 			);
-			console.log(response);
 			if (response.status) {
 				NotificationManager.success(
 					'Success aangepast.',
 					`${response.data.name}`
 				);
 			}
-			console.log('Response Status:', response.status);
 			return response.data;
 		} catch (error) {
 			console.error('Error update loaction:', error);

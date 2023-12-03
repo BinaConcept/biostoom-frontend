@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { CrudMenu } from '../../modules/crudMenu/CrudMenu';
 import { Link } from 'react-router-dom';
-import LottoService from '../../service/LottoService';
+import ApiService from '../../service/ApiService';
 
 export const LottoList = () => {
+	let control = 'lotto';
 	const [lotto, setLotto] = useState(null);
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
 		const fetchBadge = async () => {
 			try {
-				const response = await LottoService.getLottoAll();
+				const response = await ApiService.get(control);
 				setLotto(response);
 			} catch (error) {
-				setError(error.message); // Set the error state
+				setError(error.message);
 			}
 		};
 
 		fetchBadge();
-	}, []);
+	}, [control]);
 
 	if (error) {
 		return <div>Error: {error}</div>;
@@ -27,7 +28,6 @@ export const LottoList = () => {
 	if (!lotto) {
 		return <div>Loading...</div>;
 	}
-	console.log(lotto)
 	return (
 		<div className="container">
 			<h3 className="text-center">LOTTO</h3>
@@ -48,14 +48,10 @@ export const LottoList = () => {
 			{lotto.lotto_entries.map((item) => (
 				<div key={item.id} className="tabel_box m-3">
 					<div className="row text-start">
-						<div className="col-5">{item.number}</div>
-						<div className="col-5">{item.name}</div>
-						<div className="col-2">
-							<CrudMenu
-								eye={`/lotto-detail/${item.id}`}
-								pencil={`/lotto/${item.id}`}
-								trash={['lotto', item.id]}
-							/>
+						<div className="col-xl-5">{item.number}</div>
+						<div className="col-xl-5">{item.name}</div>
+						<div className="col-xl-2">
+							<CrudMenu pos={control} posId={item.id} />
 						</div>
 					</div>
 				</div>

@@ -2,28 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-import { Button, Form, Input, Select} from 'antd';
+import { Button, Form, Input, Select } from 'antd';
 import LottoService from '../../service/LottoService';
+import ApiService from '../../service/ApiService';
 
 export const LottoForm = (props) => {
+	let control = 'lotto';
 	let navigate = useNavigate();
+
 	const { id } = useParams();
-	const [lottoList, setLottoList] = useState([]);
-	const [nameChoices, setNameChoices] = useState([]);
-	const [keyLotto, setKeyLotto] = useState([]);
-	const [lottoByID, setLottoByID] = useState(null);
-	const [validationErrors, setValidationErrors] = useState({});
 	const [error, setError] = useState(null);
+	const [keyLotto, setKeyLotto] = useState([]);
+	const [lottoID, setLottoID] = useState(null);
+	const [nameChoices, setNameChoices] = useState([]);
+	const [validationErrors, setValidationErrors] = useState({});
 
 	const onFinish = async (values) => {
-		console.log({ ...values, ...keyLotto });
 		try {
 			if (id === undefined) {
-				console.log('send');
-				await LottoService.createLotto({ ...values, ...keyLotto });
+				await ApiService.create(control, { ...values, ...keyLotto });
 				navigate(-1);
 			} else {
-				await LottoService.updateLottoByID(id, { ...values, ...keyLotto });
+				await ApiService.updateID(id, { ...values, ...keyLotto });
 				navigate(-1);
 			}
 			// Handle success
@@ -51,13 +51,12 @@ export const LottoForm = (props) => {
 		// Define the function to fetch location data
 		const fetchLocation = async () => {
 			try {
-				const lottoResponse = await LottoService.getLottoAll();
-
-				setLottoList(lottoResponse.lotto_entries);
+				const lottoResponse = await ApiService.get('lotto');
+				console.log(lottoResponse);
 				setNameChoices(lottoResponse.name_choices);
 				if (id !== undefined) {
-					const response = await LottoService.getLottoByID(id);
-					setLottoByID(response);
+					const response = await ApiService.getID(id, 'lotto');
+					setLottoID(response);
 				}
 			} catch (error) {
 				console.error('Error fetching location:', error);
@@ -72,9 +71,10 @@ export const LottoForm = (props) => {
 		return <div>Error: {error}</div>;
 	}
 
-	if (!lottoByID && id !== undefined) {
+	if (!lottoID && id !== undefined) {
 		return <div>Loading...</div>;
 	}
+	console.log('rst',nameChoices)
 	return (
 		<div className="menu-box ">
 			<h3 className="mb-5">LOTTO</h3>
@@ -91,7 +91,7 @@ export const LottoForm = (props) => {
 				}}
 				initialValues={{
 					remember: true,
-					number: lottoByID !== null ? lottoByID.number : null,
+					number: lottoID !== null ? lottoID.number : null,
 				}}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
@@ -108,12 +108,12 @@ export const LottoForm = (props) => {
 
 				<Form.Item label="Soort slot">
 					<Select
-						onChange={handleChange} // value={nameChoices.length > 0 ? nameChoices[0].label : null}
+						onChange={handleChange}
 						style={{ width: '100%' }}
-						defaultValue={id > 0 ? lottoByID.name : null}
+						defaultValue={id > 0 ? lottoID.name : null}
 						options={nameChoices.map((item) => ({
 							label: item.name,
-							value: item.label,
+							value: item.id,
 						}))}
 					/>
 				</Form.Item>

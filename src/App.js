@@ -16,6 +16,12 @@ import { BadgeDetails } from './pages/badge/BadgeDetails';
 import { LottoForm } from './pages/lotto/LottoForm';
 import { LottoList } from './pages/lotto/LottoList';
 import { LottoDetails } from './pages/lotto/LottoDetails';
+import { CompanyForm } from './pages/company/CompanyForm';
+import { CompanyList } from './pages/company/CompanyList';
+import { CompanyDetails } from './pages/company/CompanyDetails';
+import { EmployeeForm } from './pages/employee/EmployeeForm';
+import { EmployeeList } from './pages/employee/EmployeeList';
+import { EmployeeDetails } from './pages/employee/EmployeeDetails';
 
 function App() {
 	return (
@@ -38,6 +44,16 @@ function App() {
 						<Route path="/lotto/:id" element={<LottoForm />} />
 						<Route path="/lotto-list" element={<LottoList />} />
 						<Route path="/lotto-detail/:id" element={<LottoDetails />} />
+
+						<Route path="/company" element={<CompanyForm />} />
+						<Route path="/company/:id" element={<CompanyForm />} />
+						<Route path="/company-list" element={<CompanyList />} />
+						<Route path="/company-detail/:id" element={<CompanyDetails />} />
+
+						<Route path="/employee" element={<EmployeeForm />} />
+						<Route path="/employee/:id" element={<EmployeeForm />} />
+						<Route path="/employee-list" element={<EmployeeList />} />
+						<Route path="/employee-detail/:id" element={<EmployeeDetails />} />
 					</Route>
 				</Routes>{' '}
 				<NotificationContainer />

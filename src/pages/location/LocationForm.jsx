@@ -1,40 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
-import {
-	Button,
-	// Cascader,
-	// Checkbox,
-	// DatePicker,
-	Form,
-	Input,
-	// InputNumber,
-	// Radio,
-	// Select,
-	// Slider,
-	// Switch,
-	// TreeSelect,
-	// Upload,
-} from 'antd';
-import LocationService from '../../service/LocationService';
-//   const { RangePicker } = DatePicker;
-//   const { TextArea } = Input;
+import { Button, Form, Input } from 'antd';
+import ApiService from '../../service/ApiService';
 
 export const LocationForm = (props) => {
+	let control = 'location';
 	let navigate = useNavigate();
+
 	const { id } = useParams();
-	const [locationByID, setLocationByID] = useState(null);
-	const [validationErrors, setValidationErrors] = useState({});
 	const [error, setError] = useState(null);
+	const [locationID, setLocationID] = useState(null);
+	const [validationErrors, setValidationErrors] = useState({});
+
 	const onFinish = async (values) => {
 		try {
 			if (id === undefined) {
-				await LocationService.createLocation(values);
+				await ApiService.create(control, values);
 				navigate(-1);
 			} else {
-				await LocationService.updateLocationByID(id, values);
+				await ApiService.updateID(id, control, values);
 				navigate(-1);
 			}
 			// Handle success
@@ -56,31 +41,43 @@ export const LocationForm = (props) => {
 	};
 
 	useEffect(() => {
-		// Define the function to fetch location data
 		const fetchLocation = async () => {
 			try {
 				if (id !== undefined) {
-					const response = await LocationService.getLocationByID(id);
-					console.log('Location data:', response); // Log the response
-					setLocationByID(response);
+					const response = await ApiService.getID(id, control);
+					setLocationID(response);
 				}
 			} catch (error) {
 				console.error('Error fetching location:', error);
 				setError(error.message);
 			}
 		};
-
-		// Call the fetchLocation function when the component mounts
 		fetchLocation();
-	}, [id]);
+	}, [control, id]);
 
 	if (error && id !== undefined) {
 		return <div>Error: {error}</div>;
 	}
 
-	if (!locationByID && id !== undefined) {
+	if (!locationID && id !== undefined) {
 		return <div>Loading...</div>;
 	}
+
+	const content = [{ name: 'name', label: 'Name' }];
+
+	const formContent = () => {
+		return content.map((item, i) => (
+			<Form.Item
+				key={i}
+				label={item.label}
+				name={item.name}
+				validateStatus={validationErrors[item.name] ? 'error' : ''}
+				help={validationErrors[item.name]}
+			>
+				<Input />
+			</Form.Item>
+		));
+	};
 
 	return (
 		<div className="menu-box ">
@@ -98,27 +95,13 @@ export const LocationForm = (props) => {
 				}}
 				initialValues={{
 					remember: true,
-					name: locationByID !== null ? locationByID.name : null,
+					name: locationID !== null ? locationID.name : null,
 				}}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
 				autoComplete="off"
 			>
-				<Form.Item
-					label="Name"
-					name="name"
-					validateStatus={validationErrors.name ? 'error' : ''}
-					help={validationErrors.name}
-					rules={[
-						{
-							// required: true,
-							// message: validationErrors.name,
-						},
-					]}
-				>
-					<Input />
-				</Form.Item>
-
+				{formContent()}
 				<Form.Item
 					wrapperCol={{
 						offset: 6,

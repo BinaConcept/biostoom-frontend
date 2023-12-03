@@ -4,22 +4,10 @@ import { useNavigate } from 'react-router-dom';
 
 import {
 	Button,
-	// Cascader,
-	// Checkbox,
-	// DatePicker,
 	Form,
-	Input,
-	// InputNumber,
-	// Radio,
-	// Select,
-	// Slider,
-	// Switch,
-	// TreeSelect,
-	// Upload,
+	Input
 } from 'antd';
 import BadgeService from '../../service/BadgeService';
-//   const { RangePicker } = DatePicker;
-//   const { TextArea } = Input;
 
 export const BadgeForm = (props) => {
 	let navigate = useNavigate();
@@ -36,7 +24,7 @@ export const BadgeForm = (props) => {
 				await BadgeService.updateBadgeByID(id, values);
 				navigate(-1);
 			}
-			// Handle success
+			
 		} catch (error) {
 			if (error.response && error.response.status === 400) {
 				setValidationErrors((prevErrors) => {

@@ -7,7 +7,6 @@ class BadgeService {
 		try {
 			NotificationManager.info('Succes opgehaald.', 'Badge lijst');
 			const response = await axios.get(`http://127.0.0.1:8000/api/badge/`);
-			console.log('Response Status:', response.status);
 			return response.data;
 		} catch (error) {
 			console.error('Error het badge:', error);
@@ -35,7 +34,6 @@ class BadgeService {
 			`http://127.0.0.1:8000/api/badge/`,
 			data
 		);
-		console.log(response);
 		if (response.status) {
 			NotificationManager.success(
 				'Success aangemaakt.',
@@ -51,14 +49,12 @@ class BadgeService {
 				`http://127.0.0.1:8000/api/badge/${id}`,
 				data
 			);
-			console.log(response);
 			if (response.status) {
 				NotificationManager.success(
 					'Success aangepast.',
 					`${response.data.zone}`
 				);
 			}
-			console.log('Response Status:', response.status);
 			return response.data;
 		} catch (error) {
 			console.error('Error update zone:', error);
