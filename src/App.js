@@ -22,6 +22,13 @@ import { CompanyDetails } from './pages/company/CompanyDetails';
 import { EmployeeForm } from './pages/employee/EmployeeForm';
 import { EmployeeList } from './pages/employee/EmployeeList';
 import { EmployeeDetails } from './pages/employee/EmployeeDetails';
+import { WorkpermitForm } from './pages/workpermit/WorkpermitForm';
+import { WorkpermitList } from './pages/workpermit/WorkpermitList';
+import { WorkpermitDetails } from './pages/workpermit/WorkpermitDetails';
+import { WorkpermitExtern } from './pages/workpermit/WorkpermitExtern';
+import Home from './pages/home/home';
+import { SelectionPage } from './pages/extern/selection/SelectionPage';
+import Login from './pages/login/Login';
 
 function App() {
 	return (
@@ -30,6 +37,9 @@ function App() {
 				<Routes>
 					<Route element={''}>
 						<Route path="/" element={<StartPage />} />
+						<Route path="/home" element={<Home />} />
+						<Route path="/selectpage" element={<SelectionPage />} />
+
 						<Route path="/location" element={<LocationForm />} />
 						<Route path="/location/:id" element={<LocationForm />} />
 						<Route path="/location-list" element={<LocationList />} />
@@ -54,6 +64,16 @@ function App() {
 						<Route path="/employee/:id" element={<EmployeeForm />} />
 						<Route path="/employee-list" element={<EmployeeList />} />
 						<Route path="/employee-detail/:id" element={<EmployeeDetails />} />
+
+						<Route path="/workpermit" element={<WorkpermitForm />} />
+						<Route path="/workpermit/:id" element={<WorkpermitForm />} />
+						<Route path="/workpermit-list" element={<WorkpermitList />} />
+						<Route
+							path="/workpermit-detail/:id"
+							element={<WorkpermitDetails />}
+						/>
+						<Route path="/workpermitextern" element={<WorkpermitExtern />} />
+						<Route path="/login" element={<Login />} />
 					</Route>
 				</Routes>{' '}
 				<NotificationContainer />

@@ -26,7 +26,6 @@ const DetailsInfo = (props) => {
 	if (!objectID) {
 		return <div>Loading...</div>;
 	}
-
 	return <Box className={'text-uppercase text-start'} obj={objectID} />;
 };
 

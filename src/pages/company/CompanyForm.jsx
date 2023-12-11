@@ -62,7 +62,6 @@ export const CompanyForm = (props) => {
 			try {
 				if (id !== undefined) {
 					const response = await CompanyService.getCompanyByID(id);
-					console.log('Location data:', response); // Log the response
 					setCompanyByByID(response);
 				}
 			} catch (error) {

@@ -1,5 +1,5 @@
 body{
-  background-color: #FAFAFA;
+  background-color: #ECF0F3;
 }
 
 .App {
@@ -107,11 +107,29 @@ transform: translate(-50%, -50%);
     height: auto;
   }
 }
+.geel{
+  background-color: yellow;
+}
+.green{
+  background-color: green;
+}
 
-.start_button{
+.starttest_button{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0.2rem 2rem 0.2rem 2rem ;
+  height: auto;
   width: 100%;
-  font-size:larger
+  background-color: rgb(91, 203, 91);
+  border-color: rgb(91, 203, 91);
 
+}
+.start_button{
+    width: 100%;
+    font-size:larger
+  
+  
 }
 
 .tabel_box {
@@ -159,6 +177,56 @@ transform: translate(-50%, -50%);
 .menu-link{
   color: #121516;
 }
-/* .location{
-  background-color: #ECF0F3;
-} */
+.flexbox{
+  display:flex;
+  flex-direction:row;
+  /* flex-wrap:wrap; */
+}
+
+.card-box{
+  width: 100%;
+  font-size: 20px;
+  border: 1px solid rgb(14, 10, 10);
+  border-radius: 1rem;
+  backdrop-filter: blur(1.2px);
+  -webkit-backdrop-filter: blur(1.2px);
+  border: 1px solid rgb(221, 219, 219);
+  padding: 0;
+}
+.link-selection{
+  position: relative;
+  text-decoration: none;
+}
+.card-box:hover{
+  box-shadow: 
+  rgba(0, 0, 0, 0.07) 0px 1px 2px, 
+  rgba(0, 0, 0, 0.07) 0px 2px 4px, 
+  rgba(0, 0, 0, 0.07) 0px 4px 8px,
+  rgba(0, 0, 0, 0.07) 0px 8px 16px, 
+  rgba(0, 0, 0, 0.07) 0px 16px 32px, 
+  rgba(0, 0, 0, 0.07) 0px 32px 64px; }
+
+  .employee-image{
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem 0 0 1rem;
+
+  }
+  .click-image{
+    width: 10rem;
+    
+  }
+  
+  @media screen and (max-width: 768px) { /* Specific to this particular image */
+    .flexbox{
+      display:flex;
+      flex-direction:column;
+    }
+    .employee-image{
+      border-radius: 16px 16px 0 0;
+      
+    }
+  }
+  
+
+  

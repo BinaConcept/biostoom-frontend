@@ -9,13 +9,17 @@ export const Box = (props) => {
 		<div className={`view-center box box-details ${props.className}`}>
 			<h1>Details</h1>
 			{single.map((item) => (
-				 <div key={item.id}>
-				 {Object.entries(item).map(([key, value]) => (
-				   <p key={key}>
-					 {key}: {value}
-				   </p>
-				 ))}
-			   </div>
+				<div key={item.id}>
+					{Object.entries(item).map(([key, value]) =>
+						key === 'company' ? (
+							<p key={key}>item[key].name</p>
+						) : (
+							<p key={key}>
+								{key}: {value}
+							</p>
+						)
+					)}
+				</div>
 			))}
 			<button
 				className="btn btn-primary start_button"

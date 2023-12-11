@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 import { Button, Form, Input, Select } from 'antd';
-import LottoService from '../../service/LottoService';
 import ApiService from '../../service/ApiService';
 
 export const LottoForm = (props) => {
@@ -23,7 +22,7 @@ export const LottoForm = (props) => {
 				await ApiService.create(control, { ...values, ...keyLotto });
 				navigate(-1);
 			} else {
-				await ApiService.updateID(id, { ...values, ...keyLotto });
+				await ApiService.updateID(id, control,{ ...values, ...keyLotto });
 				navigate(-1);
 			}
 			// Handle success
@@ -112,8 +111,8 @@ export const LottoForm = (props) => {
 						style={{ width: '100%' }}
 						defaultValue={id > 0 ? lottoID.name : null}
 						options={nameChoices.map((item) => ({
-							label: item.name,
-							value: item.id,
+							label: item.label,
+							value: item.value,
 						}))}
 					/>
 				</Form.Item>

@@ -1,5 +1,6 @@
 import React from 'react';
 import bionerga_image from '../../assets/images/Bionerga_image.jpg';
+import { Link } from 'react-router-dom';
 const StartPage = () => {
 	return (
 		<div>
@@ -14,9 +15,11 @@ const StartPage = () => {
 					<p className="mb-5">
 						Om werkvergunning aan te maken <b>klik op start knop</b>
 					</p>
-					<button type="button" className="btn btn-primary start_button">
-						START
-					</button>
+					<Link className="menu-link" to={`/selectpage`}>
+						<button type="button" className="btn btn-primary start_button">
+							START
+						</button>
+					</Link>
 				</div>
 			</div>
 		</div>
