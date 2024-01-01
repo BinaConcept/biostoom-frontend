@@ -22,6 +22,7 @@ const { TextArea } = Input;
 const onChange = (e) => {
 	console.log(e);
 };
+
 export const PermitBox = (props) => {
 	const [data, setData] = useState([]);
 
@@ -33,36 +34,62 @@ export const PermitBox = (props) => {
 	}, [props.data]);
 
 	const permitBlock = () => {
-		return Object.entries(data).map((item, i) => {
-			const elements = [];
+		return (
+			<div className="box-border">
+				<div
+					className="box-border-title"
+					style={{ fontWeight: 'bold', backgroundColor: props.color }}
+				>
+					{props.title}
+				</div>
+				<div className="row m-2 box-border mt-3">
+					{Object.entries(data).map((item, i) => (
+						<div className={item[1][0].className} key={i}>
+							{item[1][0].name !== undefined ? (
+								<div className="text-center mt-4 box-border-subtitle">
+									{item[1][0].name}
+								</div>
+							) : null}
 
-			if (item[1][0].name !== undefined) {
-                elements.push(<div key={`${i}-name`} className='text-center m-2'>{item[1][0].name}</div>);
-            }
-            
-            if (item[1][0].name !== undefined) {
-                elements.push(
-                    item[1][1].map((it, a) => (
-                        <Checkbox key={`${i}-${a}-key`} className="col-xl-3">{it.label}</Checkbox>
-                    ))
-                );
-            }
+							<div className="row m-1">
+								{item[1][0].name !== undefined
+									? item[1][1].map((it, a) => (
+											<Checkbox
+												key={`${i}-${a}-key`}
+												name={it.key}
+												className={it.className}
+												style={{
+													color: it.color,
+													fontWeight: it.color === 'red' ? 'bold' : 'normal',
+												}}
+												defaultChecked={it.checked}
+												onClick={(e) =>
+													console.log(e.target.name, ' ', e.target.checked)
+												}
+											>
+												{it.label}
+											</Checkbox>
+									  ))
+									: null}
+							</div>
 
-			if (item[1][0].key === 'description') {
-				elements.push(
-					<div key={`${i}-label`} >
-						<Typography.Text level={5}>{item[1][0].label}</Typography.Text>
-						<TextArea
-							placeholder={`Werk in kort beschrijven`}
-							allowClear
-							onChange={onChange}
-						/>
-					</div>
-				);
-			}
-
-			return elements;
-		});
+							{item[1][0].key === 'description' ? (
+								<div className="text-start mt-4 mb-4" key={`${i}-label`}>
+									<Typography.Text level={5}>
+										{item[1][0].label}
+									</Typography.Text>
+									<TextArea
+										placeholder={`Werk in kort beschrijven`}
+										allowClear
+										onChange={onChange}
+									/>
+								</div>
+							) : null}
+						</div>
+					))}
+				</div>
+			</div>
+		);
 	};
 
 	return <div>{permitBlock()}</div>;

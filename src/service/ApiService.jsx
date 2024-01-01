@@ -26,6 +26,7 @@ class ApiService {
 		try {
 			this.showNotification('get');
 			const response = await axios.get(`${url}/${con}/`);
+			console.log(con,':',response)
 			return response.data;
 		} catch (error) {
 			console.error(`Error ${con}:`, error);

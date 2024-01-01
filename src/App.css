@@ -224,9 +224,31 @@ transform: translate(-50%, -50%);
     }
     .employee-image{
       border-radius: 16px 16px 0 0;
-      
     }
   }
-  
+
+  .box-border{
+    border: 1px solid rgb(221, 219, 219);
+    margin-bottom: .5rem;
+    border-radius: 1rem;
+    background-color: rgb(251, 251, 251);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+     }
+
+  .box-border-title{
+    border-radius: 1rem 1rem 0 0; 
+    }
+  .box-border-subtitle{
+    border: 1px solid rgb(221, 219, 219); 
+     border-radius: .5rem;
+     background-color: white;
+    }
+
+  .box-border-level{
+  border: 1px solid rgb(221, 219, 219); 
+  margin-top: 1rem; 
+  margin-bottom: 1rem; 
+    }
+
 
   

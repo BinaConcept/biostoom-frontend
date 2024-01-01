@@ -20,6 +20,7 @@ import {
 } from 'antd';
 import CompanyService from '../../service/CompanyService';
 import EmployeeService from '../../service/EmployeeService';
+import ApiService from '../../service/ApiService';
 //   const { RangePicker } = DatePicker;
 //   const { TextArea } = Input;
 
@@ -34,10 +35,10 @@ export const EmployeeForm = (props) => {
 	const onFinish = async (values) => {
 		try {
 			if (id === undefined) {
-				await EmployeeService.createEmployee({ ...values, ...companyByID });
+				await ApiService.create({ ...values, ...companyByID });
 				navigate(-1);
 			} else {
-				await EmployeeService.updateEmployeeByID(id, {
+				await ApiService.updateID(id, 'employee', {
 					...values,
 					...companyByID,
 				});
@@ -68,10 +69,10 @@ export const EmployeeForm = (props) => {
 		// Define the function to fetch location data
 		const fetchLocation = async () => {
 			try {
-				const responseCompany = await CompanyService.getCompanyAll();
+				const responseCompany = await ApiService.get('company');
 				setCompany(responseCompany);
 				if (id !== undefined) {
-					const response = await EmployeeService.getEmployeeByID(id);
+					const response = await ApiService.getID(id, 'employee');
 					setEmployeeByID(response);
 				}
 			} catch (error) {
@@ -120,11 +121,7 @@ export const EmployeeForm = (props) => {
 					<Select
 						onChange={handleChange}
 						style={{ width: '100%' }}
-						defaultValue={
-							id
-								? company.find((res) => res.id === employeeByID.company)?.name
-								: null
-						}
+						defaultValue={employeeByID.company.id}
 						options={company?.map((item) => ({
 							label: item.name,
 							value: item.id,

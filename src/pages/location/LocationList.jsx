@@ -6,7 +6,7 @@ export const LocationList = () => {
 	return (
 		<div className="container">
 			<h3 className="text-center">LOCATION</h3>
-			<Table data={TabelList} control={'location'} />;
+			<Table data={TabelList} control={'location'} />
 		</div>
 	);
 
