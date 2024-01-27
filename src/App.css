@@ -47,6 +47,7 @@ body{
   left: -50%; 
   width: 200%; 
   height: 200%;
+  z-index: 2;
 
   
 }
@@ -82,7 +83,7 @@ backdrop-filter: blur(1.2px);
 border: 1px solid rgba(255, 255, 255, 0.67);
 color: rgb(255, 255, 255);
 padding: 4ex 8ex 2ex 8ex;
-
+z-index: 3;
 
 }
 
@@ -185,6 +186,7 @@ transform: translate(-50%, -50%);
 
 .card-box{
   width: 100%;
+  height: auto;
   font-size: 20px;
   border: 1px solid rgb(14, 10, 10);
   border-radius: 1rem;
@@ -192,6 +194,8 @@ transform: translate(-50%, -50%);
   -webkit-backdrop-filter: blur(1.2px);
   border: 1px solid rgb(221, 219, 219);
   padding: 0;
+  margin: .5rem;
+  
 }
 .link-selection{
   position: relative;
@@ -207,13 +211,15 @@ transform: translate(-50%, -50%);
   rgba(0, 0, 0, 0.07) 0px 32px 64px; }
 
   .employee-image{
+    position: relative;
     width: 100%;
     height: 100%;
     border-radius: 1rem 0 0 1rem;
+    z-index: 1;
 
   }
   .click-image{
-    width: 10rem;
+    width: 30%;
     
   }
   
@@ -222,9 +228,18 @@ transform: translate(-50%, -50%);
       display:flex;
       flex-direction:column;
     }
-    .employee-image{
-      border-radius: 16px 16px 0 0;
+    .card-box{
+    margin: 0;
+    margin-top: .5rem;
     }
+    ._leftSidebar{
+      display: none;
+    }
+    ._rightSidebar{
+      display: none;
+    }
+    
+    
   }
 
   .box-border{
@@ -250,5 +265,82 @@ transform: translate(-50%, -50%);
   margin-bottom: 1rem; 
     }
 
+  .side-bar{
+    width: 18.75rem;
+    height: 88vh;
+  }
 
+  .left{
+    position: absolute;
+    z-index: 1;
+  }
+   
+ .right{
+    position: absolute;
+    opacity: 0.6;
+    z-index: 2;
+    right: 0;
+  }
+
+  .all-content {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  ._header {
+    position: relative;
+    left: 0;
+    top: 0;
+    background-color: #001529;
+    height: 4rem;
+  }
+  ._leftSidebar {
+    position: relative;
+    left: 0;
+    top: 0;
+    background-color: #001529;
+    color: white;
+    min-width: 16rem;
+    height: auto;
+  }
+  .test{
+  font-size: 1rem;
+  }
+ 
+ ._content{
+  width: 100%;
+}
+  ._center {
+    position: relative;
+    left: 0;
+    top: 0;
+    /* background-color: rgb(236, 236, 53); */
+    display: flex;
+    flex-grow: 1;
+    z-index: 1;
+  }
+  
+
+  
+  ._rightSidebar {
+    position: absolute;
+    height: 100%;
+    background-color: #001529;
+    opacity: 0.8;
+    min-width: 18.75rem;
+    right: 0;
+    margin-left: auto; 
+    z-index: 10;
+  }
+  
+  ._footer {
+    height: 3rem;
+    font-size: 1.2rem;
+    background-color: #001529;
+  }
+  
   

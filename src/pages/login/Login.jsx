@@ -7,6 +7,9 @@ const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo);
 };
 const Login = () => (
+  <div className='container'>
+
+  
   <Form
     name="basic"
     labelCol={{
@@ -73,5 +76,6 @@ const Login = () => (
       </Button>
     </Form.Item>
   </Form>
+  </div>
 );
 export default Login;

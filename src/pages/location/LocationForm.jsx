@@ -80,8 +80,8 @@ export const LocationForm = (props) => {
 	};
 
 	return (
-		<div className="menu-box ">
-			<h3 className="mb-5">LOCATIE</h3>
+		<div className="menu-box">
+			<h3 className="mb-5 text-center">LOCATIE</h3>
 			<Form
 				name="basic"
 				labelCol={{

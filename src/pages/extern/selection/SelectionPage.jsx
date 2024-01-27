@@ -6,19 +6,16 @@ import click from '../../../assets/images/click.png';
 
 export const SelectionPage = () => {
 	return (
-		<div className="view-center container-fluid">
+		<div className="view-center">
 			<div className="flexbox">
-				<div className="card-box m-2 ">
+				<div className="card-box">
 					<Link className="menu-link link-selection" to={`/login`}>
 						<div className="row">
-							<div className="col-xl-5">
+							<div className="col-5 ">
 								<img src={intern} className="employee-image" alt="" />
 							</div>
-							<div className="col-xl-7">
+							<div className="col-7">
 								<h1 className="link">INTERN</h1>
-								<div>
-									<p>U werkt bij Biostoom.</p>
-								</div>
 								<img src={click} className="click-image" alt="inter_image" />
 						
 								
@@ -26,22 +23,19 @@ export const SelectionPage = () => {
 						</div>
 					</Link>
 				</div>
-				<div className="card-box m-2 ">
+				<div className="card-box">
 					<Link className="menu-link link-selection" to={`/introduction`}>
 						<div className="row">
-							<div className="col-xl-5">
+							<div className="col-5">
 								<img src={extern} className="employee-image" alt="" />
 							</div>
-							<div className="col-xl-7">
+							<div className="col-7">
 								<h1 className="link">EXTERN</h1>
-								<div>
-									<p>U bent een werknemer van een ander bedrijf.</p>
-								</div>
 								<img src={click} className="click-image" alt="extern_image" />
 							</div>
 						</div>
 					</Link>
-				</div>
+				</div> 
 			</div>
 		</div>
 	);
